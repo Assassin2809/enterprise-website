@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'Audiowide', sans-serif;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+     
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #37FF8B;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+          
+        
+    </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1 class="Heading">GUIDE</h1>
+        <p>
+            1: Enter room number and arrow shows where room is. <br>
+            2: Click the Documentation button to view documentation in data journalism style.  <br>
+            3: Click the dropdown arrow in the school map section to highlight all the rooms in certain levels and other things. 
+            <br> 
+            4: Scroll down to see a back button to go back to the previous page <br>
+            5: Click on Virtual Tour to get a specialised up-to-date 360 tours of different sections of the school.
+        </p>
+    </div>
+    <div class="container">
+        <button class="button" data-text="Awesome" onclick="location.href='index.html'">
+            <span class="actual-text">&nbsp;Back&nbsp;</span>
+            <span aria-hidden="true" class="hover-text">&nbsp;Back&nbsp;</span>
+        </button>
+
+    </div>
+    <script src="code.js"></script>
+</body>
+</html>

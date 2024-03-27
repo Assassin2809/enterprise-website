@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="start-page">
+        <br><br><br>
+        <img src="Images/PHHS_logo.png" class="phhs_logo" alt="">
+        <h1>Welcome to the School Map</h1>
+        <div class="button-container">
+            <button class="start-button" id="start-button">
+                <span>Start</span><i></i>
+            </button>
+        </div>        
+    </div>
+    <div id="school-map" style="display: none;">
+        <br><br><br>
+        <div class="search-container" id = "search">
+            <br><br> <br>
+            <div class="inputbox">
+                <span>Enter Room</span>
+                <input required="required" type="text" id="room-number">
+                <i></i>
+            </div>        
+            <input type="submit" id="search1" value="Search" onclick="searchRoom()" class="searchitem">
+            <div class="dropdown">
+                <button class="dropbtn">All &#9660;</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="highlightCategory('Level 4')">Level 4</a>  
+                    <a href="#" onclick="highlightCategory('Level 3')">Level 3</a>
+                    <a href="#" onclick="highlightCategory('Level 2')">Level 2</a>
+                    <a href="#" onclick="highlightCategory('Level 1')">Level 1</a>
+                    <a href="#" onclick="highlightCategory('Staff Rooms')">Staff Rooms</a>
+                    <a href="#" onclick="highlightCategory('Toilets')">Toilets</a>
+                    <a href="#" onclick="highlightCategory('All')">All</a>
+                </div>
+            </div>
+        </div>  
+        <div id="map-container">
+            <img id="map" src="Images/school_map.png" alt="School Map">
+            <div id="arrow" class="arrow" style="display: none;"></div>
+        </div>  
+        <div id="feedback-popup" style="display: none;">
+            <button id="cancel-feedback">X</button>
+            <button id="send-feedback">Send Feedback</button>
+        </div>
+        <div class = "container">
+            <a href="index.html" class = "btn1">Back</a>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="sub-buttons" > 
+            <button onclick="location.href='guide.html'">Guide</button>
+            <button onclick="location.href='documentation.html'" class="documentation-button">Documentation</button>
+            <button onclick="location.href='360view.html'">Virtual Tour</button>
+        </div>
+    </div>
+    <script src="code.js"></script>
+    <script>
+        document.getElementById("start-button").addEventListener("click", function() {
+            document.getElementById("start-page").style.display = "none";
+            document.getElementById("school-map").style.display = "block";
+        });
+
+        function goBack() {
+            document.getElementById("school-map").style.display = "none";
+            document.getElementById("start-page").style.display = "flex";
+        }
+        var input = document.getElementById("room-number");
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        searchRoom();
+      }
+    });
+
+    </script>
+</body>
+</html>

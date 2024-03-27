@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+           
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        button {
+  --green: #1BFD9C;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid var(--green);
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+  color: var(--green);
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+
+button:hover {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform .4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+}
+
+button:hover:before {
+  transform: translateX(15em);
+}
+
+        .iframe-container {
+            width: 100%;
+            max-width: 800px;
+            display: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #back-button {
+            padding: 18px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: none;
+        
+        }
+        .back{
+            margin-top: 20px;
+        }
+        .textinbutton{
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>360 Links</h1>
+    <div class="button-container">
+        <button class="button" onclick="showLink('https://momento360.com/e/u/bb5ca7b654484cf9b9cb9a9ea7e68378?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Level 2 Stairs</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/cbab369d6f09486587ae984dfea8dd94?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Canteen</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/1127a79083d247b59e6750b141e4bd40?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Basketball Courts</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/81b17385c00b42d392fc7bdeec27506c?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">COLA</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/a29a63b37f0d43f49802c16f3daf5cee?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Library Quad</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/5fc6eeabd35542568c2e493d61fc82cb?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Level 2</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/1ebe4d01290c42c185d4144f2081676f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Bell Quad</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/ba99bc9ea961493c80df91398b0b93af?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true')">Main Quad</button>
+        <button class="button" onclick="showLink('https://momento360.com/e/u/8f39daf48715487cab987a4f49d104b2?utm_campaign=embed&utm_source=other&heading=359.98&pitch=3.65&field-of-view=66.38&size=medium&display-plan=true')">Oval</button>
+    </div>
+    <div class="iframe-container" id="iframe-container">
+        <iframe id="iframe" allowfullscreen></iframe>
+    </div>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <div class="back">
+        <button onclick="location.href='index.html'" class="back">Back To Home</button>
+    </div>
+    <script>
+        const iframeContainer = document.getElementById('iframe-container');
+        const iframe = document.getElementById('iframe');
+        const backButton = document.getElementById('back-button');
+
+        function showLink(link) {
+            backButton.style.display = 'block';
+            iframeContainer.style.display = 'block';
+            iframe.src = link;
+        }
+
+        function goBack() {
+            backButton.style.display = 'none';
+            iframeContainer.style.display = 'none';
+            iframe.src = 'about:blank';
+        }
+    </script>
+</body>
+
+</html>
