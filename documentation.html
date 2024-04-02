@@ -53,47 +53,83 @@
             margin-left: 300px;
         }
         button {
-  --color: #ff6f00;;
-  font-family: inherit;
-  display: inline-block;
-  width: 6em;
-  height: 2.6em;
-  line-height: 2.5em;
-  overflow: hidden;
-  margin: 20px;
-  font-size: 17px;
-  z-index: 1;
-  color: var(--color);
-  border: 2px solid var(--color);
-  border-radius: 6px;
-  position: relative;
-}
+            --color: #ff6f00;
+            font-family: inherit;
+            display: inline-block;
+            width: 6em;
+            height: 2.6em;
+            line-height: 2.5em;
+            overflow: hidden;
+            margin: 20px;
+            font-size: 17px;
+            z-index: 1;
+            color: var(--color);
+            border: 2px solid var(--color);
+            border-radius: 6px;
+            position: relative;
+        }
 
-button::before {
-  position: absolute;
-  content: "";
-  background: var(--color);
-  width: 150px;
-  height: 200px;
-  z-index: -1;
-  border-radius: 50%;
-}
+        button::before {
+            position: absolute;
+            content: "";
+            background: var(--color);
+            width: 150px;
+            height: 200px;
+            z-index: -1;
+            border-radius: 50%;
+        }
 
-button:hover {
-  color: white;
-}
+        button:hover {
+            color: white;
+        }
 
-button:before {
-  top: 100%;
-  left: 100%;
-  transition: .3s all;
-}
+        button:before {
+            top: 100%;
+            left: 100%;
+            transition: .3s all;
+        }
 
-button:hover::before {
-  top: -30px;
-  left: -30px;
+        button:hover::before {
+            top: -30px;
+            left: -30px;
+        }
 
-}
+        /* Wireframe window */
+        .wireframe-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            border: 2px solid #333;
+            background-color: #fff;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .wireframe-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .wireframe-images img {
+            width: 45%;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -123,10 +159,33 @@ button:hover::before {
         <p><strong>User Feedback:</strong> Continuous collection and analysis of user feedback for improvements and updates. User feedback is crucial to the projects development process. By using this feedback we can develop the website based on the needs of the user.</p>
         <p><strong>Evaluation:</strong> Regular assessment of the kiosk's effectiveness in helping users navigate the school. Regular checks of the website to ensure that its functionality is upto working order and constantly looking out for upgrades that could be added to the</p>
     </div>
-    <div class = "container">
+    <div class="container">
+        <button onclick="toggleWireframe()">
+            Wireframe
+        </button>
         <button onclick="location.href='index.html'">
             Back
         </button>
-</div>
+    </div>
+    <div class="wireframe-window" id="wireframeWindow">
+        <span class="close-button" onclick="toggleWireframe()">&#x2716;</span>
+        <div class="wireframe-images">
+            <img src="Images/schoolmap.png" alt="School Map">
+            <img src="Images/startpage.png" alt="Start Page">
+            <img src="Images/documentation.png" alt="Documentation">
+            <img src="Images/virtualtour.png" alt="Virtual Tour">
+            <img src="Images/guide.png" alt="Guide">
+        </div>
+    </div>
+    <script>
+        function toggleWireframe() {
+            const wireframeWindow = document.getElementById("wireframeWindow");
+            if (wireframeWindow.style.display === "block") {
+                wireframeWindow.style.display = "none";
+            } else {
+                wireframeWindow.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
